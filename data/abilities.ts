@@ -4491,4 +4491,19 @@ export const Abilities: {[abilityid: string]: AbilityData} = {
 		rating: 3,
 		num: -4,
 	},
+	//bonkmod
+	technicalrepair: {
+		isNonstandard: "CAP",
+		name: "Technical Repair",
+		onUpdate(pokemon) {
+			if (pokemon.hp <= pokemon.maxhp / 2) {
+				if ((source && source.baseSpecies.num === -5009) || pokemon.baseSpecies.num === -5009) {
+				return false;
+				}
+			return true;
+			}
+		},
+		rating: 1,
+		num: -5,
+	},
 };
